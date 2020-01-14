@@ -2,7 +2,7 @@
  * @Author: renlei
  * @Date: 2020-01-10 10:47:57
  * @LastEditors  : renlei
- * @LastEditTime : 2020-01-10 17:44:34
+ * @LastEditTime : 2020-01-14 17:46:07
  * @Description: 进度条插件
  -->
 <template>
@@ -19,12 +19,15 @@
             height: option.btnHeight + 'px',
             top: -(option.btnHeight - option.height) / 4 + 'px',
             left: -option.btnWidth / 2 + 'px',
+            background: (item.active? option.btnColor: '')
           }"
           @click="btnBar(item.text, index)"
           :class="{ btnActive: item.active }"
           :disabled="option.disabled"
         ></button>
-        <span class="bar-text" :class="{ textActive: item.active }">{{
+        <span class="bar-text" :class="{ textActive: item.active }" :style="{
+          color: (item.active? option.btnColor: '')
+        }">{{
           item.text
         }}</span>
       </li>
@@ -81,7 +84,7 @@ export default {
   },
   methods: {
     init() {
-      console.log(this.option);
+      //console.log(this.option);
       const arrOption = this.option.arrOption;
       const selected = this.option.selected;
       let i,
@@ -89,6 +92,8 @@ export default {
       arrOption.map((item, index) => {
         if (item === selected) {
           i = index;
+        }else{
+           i = 0;
         }
       });
       arrOption.map((item, index) => {
@@ -106,7 +111,7 @@ export default {
         }
         arr.push(obj);
       });
-      console.log(arr);
+      //console.log(arr);
       this.option.arrOption = arr;
       const element = this.$refs.progressChange;
       const style = {

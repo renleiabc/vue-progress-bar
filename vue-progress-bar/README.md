@@ -6,37 +6,49 @@
 
 # install
 
-npm install vue-upload-picture --save
+npm install vue-progress-bar --save
 
 > or
-> yarn add vue-upload-picture
+> yarn add vue-progress-bar
 
 # 使用组件必须传递的参数 options
 
-| 参数           |      字段      |     类型 | 默认值 |
-| -------------- | :------------: | -------: | -----: |
-| 是否显示进度条 |  showProgress  | Booleans |   true |
-| 是否预览图片   |  imagePreview  | Booleans |   true |
-| 上传的接口链接 |      url       |   string |
-| 图片名称       | fileUploadName |   string |
-| 图片大小       |   limitSize    |   number |
+|               参数 |    字段    |  类型   |       默认值       |
+| -----------------: | :--------: | :-----: | :----------------: |
+|       进度条的宽度 |   width    | number  |        500         |
+|       进度条的宽度 |   height   | number  |         10         |
+| 进度条点击按钮宽度 |  btnWidth  | number  |         16         |
+| 进度条点击按钮高度 | btnHeight  | number  |         16         |
+|     默认选中的进度 |  selected  | string  |                    |
+|     进度条的背景色 | background | string  |      #e1e1e1       |
+|   进度条选中的颜色 |  btnColor  | string  |      #60baff       |
+|     进度条是否点击 |  disabled  | boolean |       false        |
+|     进度条文本内容 | arrOption  |  array  | [1, 8, 3, 4, 5, 6] |
 
 ```bash
-options:{
-   showProgress: true,
-   imagePreview: true,
-   url: "str",
-   fileUploadName: "ajax-upload",//后台采用什么名字就传递什么名字
-   limitSize: 1//限制图片上传的大小
-}
+ objOption: {
+        width: 500,
+        height: 10,
+        selected: 4,
+        btnWidth: 16,
+        btnHeight: 16,
+        background: '#e1e1e1',
+        btnColor: '#60baff',
+        disabled: false,
+        arrOption: [1, 8, 3, 4, 5, 6],
+      },
 # 组件的使用方法
- <hupload :options="options" v-on:receiveUploadMsg="receiveUploadMsg"></hupload>
+  <vue-progress-bar :option="objOption" @btnBar="handleBtnBar"></vue-progress-bar>
 
+# 组件的事件
+ |     事件名称            |          说明              | 回调参数
+ | -----------------:     | :------------------------: |:-----------------------: |
+ |       btnBar           |   获取当前点击进度条的信息   |   $event                       |
 
 # js 接受的信息判断
 methods:{
-  receiveUploadMsg(msg){
-    //msg....
+  handleBtnBar($event){
+    //$event....
   }
 }
 ```

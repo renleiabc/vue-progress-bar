@@ -1,3 +1,10 @@
+/*
+ * @Author: renlei
+ * @Date: 2020-01-10 16:57:36
+ * @LastEditors  : renlei
+ * @LastEditTime : 2020-01-14 16:32:57
+ * @Description: 
+ */
 function animate(obj, targetJSON, time, callback) {
   var interval = 10;
   if (window.navigator.userAgent.indexOf('MSIE') != -1) {
@@ -36,7 +43,7 @@ function animate(obj, targetJSON, time, callback) {
         }
       }
       clearInterval(timer);
-      console.log('time: ' + (new Date() - t1));
+      //console.log('time: ' + (new Date() - t1));
       callback && callback();
     }
   }, interval);

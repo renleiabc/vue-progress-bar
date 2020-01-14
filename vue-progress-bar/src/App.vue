@@ -2,7 +2,7 @@
  * @Author: renlei
  * @Date: 2020-01-10 10:38:21
  * @LastEditors  : renlei
- * @LastEditTime : 2020-01-10 17:45:57
+ * @LastEditTime : 2020-01-14 17:45:34
  * @Description: 
  -->
 <template>
@@ -29,7 +29,7 @@ export default {
       objOption: {
         width: 500,
         height: 10,
-        selected: 4,
+        selected: "",
         btnWidth: 16,
         btnHeight: 16,
         background: '#e1e1e1',
