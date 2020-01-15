@@ -1,3 +1,4 @@
+
 # vue-progress-bar
 
 > A plug-in for uploading pictures based on Vue
@@ -9,7 +10,7 @@
 npm install vue-progress-bar --save
 
 > or
-> yarn add vue-progress-bar
+ yarn add vue-progress-bar
 
 # 使用组件必须传递的参数 options
 
@@ -24,7 +25,10 @@ npm install vue-progress-bar --save
 |   进度条选中的颜色 |  btnColor  | string  |      #60baff       |
 |     进度条是否点击 |  disabled  | boolean |       false        |
 |     进度条文本内容 | arrOption  |  array  | [1, 8, 3, 4, 5, 6] |
-
+# 组件的事件
+ |     事件名称            |          说明              | 回调参数
+ | -----------------:     | :------------------------: |:-----------------------: |
+ |       btnBar           |   获取当前点击进度条的信息   |   $event                       |
 ```bash
  objOption: {
         width: 500,
@@ -40,10 +44,7 @@ npm install vue-progress-bar --save
 # 组件的使用方法
   <vue-progress-bar :option="objOption" @btnBar="handleBtnBar"></vue-progress-bar>
 
-# 组件的事件
- |     事件名称            |          说明              | 回调参数
- | -----------------:     | :------------------------: |:-----------------------: |
- |       btnBar           |   获取当前点击进度条的信息   |   $event                       |
+
 
 # js 接受的信息判断
 methods:{
